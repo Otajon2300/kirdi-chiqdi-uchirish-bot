@@ -30,11 +30,7 @@ if __name__ == '__main__':
 
     # Botingizning API tokenini kiriting
     # token = '6328093327:AAGBnOnAzeVK-5Tkk9DPqYe90Tu_ccL4wZg'
-    token = os.getenv('TOKEN')
-    if not token:
-        raise ValueError("TOKEN muhit o'zgaruvchisi aniqlanmadi. Iltimos, TOKEN o'zgaruvchisini sozlang.")
-
-    app = ApplicationBuilder().token(token).build()
+    token = '6328093327:AAGBnOnAzeVK-5Tkk9DPqYe90Tu_ccL4wZg'
 
     # Handlerlarni ro'yxatga olish
     app = ApplicationBuilder().token(token).build()
@@ -44,4 +40,4 @@ if __name__ == '__main__':
 
 # Start the webhook
     app.run_webhook(listen="0.0.0.0", port=8443, url_path=token)
-    app.bot.set_webhook(f"https://https://kirdi-chiqdi-uchirish-bot.onrender.com//{token}")
+    app.bot.set_webhook(f"https://kirdi-chiqdi-uchirish-bot.onrender.com/{token}")
