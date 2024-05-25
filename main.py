@@ -3,6 +3,8 @@ import os
 from background import keep_alive
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
+from telegram.ext import ContextTypes
+
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -28,7 +30,9 @@ if __name__ == '__main__':
 
     # Botingizning API tokenini kiriting
     # token = '6328093327:AAGBnOnAzeVK-5Tkk9DPqYe90Tu_ccL4wZg'
-    token=os.environ.get('TOKEN')
+    token = os.getenv('TOKEN')
+    if not token:
+        raise ValueError("TOKEN muhit o'zgaruvchisi aniqlanmadi. Iltimos, TOKEN o'zgaruvchisini sozlang.")
 
     app = ApplicationBuilder().token(token).build()
 
