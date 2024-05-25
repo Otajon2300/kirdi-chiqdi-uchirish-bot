@@ -37,9 +37,11 @@ if __name__ == '__main__':
     app = ApplicationBuilder().token(token).build()
 
     # Handlerlarni ro'yxatga olish
+    app = ApplicationBuilder().token(token).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(MessageHandler(filters.StatusUpdate.NEW_CHAT_MEMBERS, handle_new_chat_members))
     app.add_handler(MessageHandler(filters.StatusUpdate.LEFT_CHAT_MEMBER, handle_left_chat_member))
 
-    # Botni ishga tushirish
-    app.run_polling()
+# Start the webhook
+    app.run_webhook(listen="0.0.0.0", port=8443, url_path=token)
+    app.bot.set_webhook(f"https://https://kirdi-chiqdi-uchirish-bot.onrender.com//{token}")
