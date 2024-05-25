@@ -24,7 +24,7 @@ async def handle_left_chat_member(update: Update, context: ContextTypes.DEFAULT_
         logger.error(f"Chiqish xabarini o'chirishda xato: {e}")
 
 keep_alive()
-if __name__ == '__main__'
+if __name__ == '__main__':
 
     # Botingizning API tokenini kiriting
     # token = '6328093327:AAGBnOnAzeVK-5Tkk9DPqYe90Tu_ccL4wZg'
